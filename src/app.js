@@ -1,13 +1,13 @@
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-  .then(registration => {
-    console.log('Service Worker registered:', registration);
-  })
-  .catch(error => {
-    console.log('Service Worker registration failed:', error);
-  });
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("service-worker.js")
+    .then((registration) => {
+      console.log("Service Worker registered:", registration);
+    })
+    .catch((error) => {
+      console.log("Service Worker registration failed:", error);
+    });
 }
-
 
 // Select DOM elements
 const loginBtn = document.getElementById("login-btn");
@@ -25,7 +25,7 @@ loginBtn.addEventListener("click", () => {
     // Show upload button
     uploadInput.style.display = "block";
     passwordInput.value = "";
-    alert("Access granted! You can now upload or take a picture.");
+    //alert("Access granted! You can now upload or take a picture.");
   } else {
     alert("Incorrect password!");
   }
