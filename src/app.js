@@ -14,6 +14,8 @@ const loginBtn = document.getElementById("login-btn");
 const passwordInput = document.getElementById("admin-password");
 const uploadInput = document.getElementById("upload-btn");
 const gallery = document.getElementById("gallery");
+const customUploadBtn = document.getElementById("customUploadBtn");
+const adminLogin = document.getElementById("admin-login");
 
 // Initially hide upload button
 uploadInput.style.display = "none";
@@ -23,15 +25,25 @@ loginBtn.addEventListener("click", () => {
   const enteredPassword = passwordInput.value.trim();
   if (enteredPassword === "abc") {
     // Show upload button
-    uploadInput.style.display = "block";
+    //uploadInput.style.display = "block";
+    customUploadBtn.style.display = "inline";
     passwordInput.value = "";
+
+    //hide the login box
+    adminLogin.style.display = "none";
+
     //alert("Access granted! You can now upload or take a picture.");
   } else {
-    alert("Incorrect password!");
+    passwordInput.value = "";
+    alert("Incorrect password! You Fool!");
   }
 });
 
-// Handle image upload or capture
+customUploadBtn.addEventListener("click", () => {
+  uploadInput.click();
+});
+
+// Handle the image after selection
 uploadInput.addEventListener("change", () => {
   const file = uploadInput.files[0];
   if (file) {
@@ -42,6 +54,18 @@ uploadInput.addEventListener("change", () => {
     reader.readAsDataURL(file);
   }
 });
+
+// // Handle image upload or capture
+// uploadInput.addEventListener("change", () => {
+//   const file = uploadInput.files[0];
+//   if (file) {
+//     const reader = new FileReader();
+//     reader.onload = function () {
+//       addImageToGallery(reader.result);
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// });
 
 function addImageToGallery(imgSrc) {
   // Container div for image, delete button, and textarea

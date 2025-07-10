@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css">
 </head>
-<body class="bg-light">
+<body class="">
     
     <div class="container mt-5">
         <div class="position-fixed top-0 start-0 m-3">
@@ -21,7 +21,7 @@
             <div class="col-md-4">
                 <div id="admin-login" class="input-group shadow-sm">
                     <input type="password" id="admin-password" class="form-control" placeholder="Enter Password">
-                    <button class="btn btn-primary" id="login-btn">Login</button>
+                    <button class="btn btn-success" id="login-btn">Login</button>
                 </div>
             </div>
         </div>
@@ -29,7 +29,10 @@
         <!-- Center the file upload button -->
         <div class="row justify-content-center mb-5">
             <div class="col-md-4 text-center">
-                <input type="file" accept="image/*" id="upload-btn" capture="camera" class="form-control" style="display: none;">
+                <!-- Hide this -->
+                <input type="file" accept="image/*" id="upload-btn" capture="camera" style="display: none;">
+                <!-- Add a custom button -->
+                <button id="customUploadBtn" class="btn btn-success mb-3" style="display: none;">Upload Image</button>
             </div>
         </div>
 
