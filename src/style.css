@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#admin-login {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#gallery img {
+    margin: 10px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+btn-primary {
+    border-radius: 0;
+}

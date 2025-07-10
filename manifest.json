@@ -1,0 +1,15 @@
+{
+  "name": "Planet Earth",
+  "short_name": "PlanetEarth",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Share images of our planet.",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
