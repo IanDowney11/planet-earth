@@ -32,31 +32,45 @@ uploadInput.addEventListener("change", () => {
   }
 });
 
-// Function to add image with delete button to gallery
 function addImageToGallery(imgSrc) {
-  // Create container div (Bootstrap col for grid)
+  // Container div for image, delete button, and textarea
   const col = document.createElement("div");
-  col.className = "col-md-3 position-relative";
+  col.className = "col-md-3 mb-4";
 
-  // Create image element
+  const card = document.createElement("div");
+  card.className = "card";
+
+  // Image element
   const img = document.createElement("img");
   img.src = imgSrc;
-  img.className = "img-thumbnail";
+  img.className = "card-img-top";
 
-  // Create delete button
+  // Delete button
   const delBtn = document.createElement("button");
   delBtn.innerHTML = "&times;";
-  delBtn.className = "btn btn-danger btn-sm position-absolute top-0 end-0 m-1";
-
-  // Delete handler
+  delBtn.className = "btn btn-danger btn-sm position-absolute top-0 end-0 m-2";
   delBtn.onclick = () => {
     col.remove();
   };
 
-  // Append image and delete button to container
-  col.appendChild(img);
-  col.appendChild(delBtn);
+  // Wrap image in a position-relative div (or use position-relative to position delete button)
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "position-relative";
 
-  // Append container to gallery row
-  gallery.appendChild(col);
+  imgContainer.appendChild(img);
+  imgContainer.appendChild(delBtn);
+
+  // Textarea for info
+  const textArea = document.createElement("textarea");
+  textArea.className = "form-control m-2";
+  textArea.placeholder = "Add info about this photo";
+  textArea.rows = 10;
+
+  // Append all to card
+  card.appendChild(imgContainer);
+  card.appendChild(textArea);
+  col.appendChild(card);
+
+  // Append to gallery
+  document.getElementById("gallery").appendChild(col);
 }
