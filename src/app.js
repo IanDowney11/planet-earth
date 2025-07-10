@@ -74,3 +74,32 @@ function addImageToGallery(imgSrc) {
   // Append to gallery
   document.getElementById("gallery").appendChild(col);
 }
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  showInstallButton();
+});
+
+const installBtn = document.getElementById("installBtn");
+
+function showInstallButton() {
+  installBtn.style.display = "block";
+}
+
+installBtn.addEventListener("click", () => {
+  installBtn.style.display = "none";
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      console.log(`User response: ${choiceResult.outcome}`);
+      deferredPrompt = null;
+    });
+  }
+});
+
+window.addEventListener("appinstalled", () => {
+  console.log("App installed");
+});
