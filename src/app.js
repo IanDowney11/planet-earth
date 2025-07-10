@@ -10,7 +10,7 @@ uploadInput.style.display = "none";
 // Handle login
 loginBtn.addEventListener("click", () => {
   const enteredPassword = passwordInput.value.trim();
-  if (enteredPassword === "ILoveRufusRoofRoofRoof") {
+  if (enteredPassword === "abc") {
     // Show upload button
     uploadInput.style.display = "block";
     passwordInput.value = "";
