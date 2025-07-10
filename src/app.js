@@ -68,17 +68,23 @@ uploadInput.addEventListener("change", () => {
 // });
 
 function addImageToGallery(imgSrc) {
-  // Container div for image, delete button, and textarea
   const col = document.createElement("div");
   col.className = "col-md-8 mb-4";
 
   const card = document.createElement("div");
-  card.className = "card";
+  card.className = "card p-2";
 
-  // Image element
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "position-relative";
+
   const img = document.createElement("img");
   img.src = imgSrc;
-  img.className = "card-img-top";
+  img.className = "img-fluid"; // Bootstrap responsive class
+  // Responsive and nice size control
+  img.style.maxWidth = "95%";
+  img.style.margin = "10px auto"; // Top/Bottom margin + center horizontally
+  img.style.display = "block";
+  img.style.borderRadius = "8px";
 
   // Delete button
   const delBtn = document.createElement("button");
@@ -88,35 +94,20 @@ function addImageToGallery(imgSrc) {
     col.remove();
   };
 
-  // Wrap image in a position-relative div (or use position-relative to position delete button)
-  const imgContainer = document.createElement("div");
-  imgContainer.className = "position-relative";
-
   imgContainer.appendChild(img);
   imgContainer.appendChild(delBtn);
 
-  // Textarea for info
+  // Optional: Add a textarea below the image
   const textArea = document.createElement("textarea");
-  textArea.className = "form-control m-2";
+  textArea.className = "form-control mt-2"; // margin top for spacing
   textArea.placeholder = "Add info about this photo";
-  textArea.rows = 10;
 
-  // Append all to card
+  // Assemble
   card.appendChild(imgContainer);
   card.appendChild(textArea);
   col.appendChild(card);
-
-  // Append to gallery
   document.getElementById("gallery").appendChild(col);
 }
-
-let deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  showInstallButton();
-});
 
 const installBtn = document.getElementById("installBtn");
 

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #deb887;
+    background-color: #ffe1ba;
 }
 
 #admin-login {
@@ -35,4 +35,9 @@ btn-primary {
   background: rgba(255,255,255,0.9);
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Add CSS for the container to add margins inside the container */
+.image-wrapper {
+  padding: 10px; /* space around the image inside its container */
 }
