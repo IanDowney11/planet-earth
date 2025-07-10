@@ -35,7 +35,7 @@ uploadInput.addEventListener("change", () => {
 function addImageToGallery(imgSrc) {
   // Container div for image, delete button, and textarea
   const col = document.createElement("div");
-  col.className = "col-md-3 mb-4";
+  col.className = "col-md-8 mb-4";
 
   const card = document.createElement("div");
   card.className = "card";
